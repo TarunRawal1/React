@@ -10,13 +10,16 @@ export const Dropdownloggedin = ({ setdropdown }) => {
   useEffect(() => {
     async function getuser() {
       try {
-        const response = await fetch(`http://localhost:8000/600/users/${ids}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await fetch(
+          `${process.env.REACT_APP_HOST}/600/users/${ids}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         const data = await response.json();
         setuser(data);
       } catch (error) {
