@@ -2,7 +2,7 @@ export async function getUsers(params) {
   const token = JSON.parse(sessionStorage.getItem("accessToken"));
   const ids = JSON.parse(sessionStorage.getItem("id"));
   const response = await fetch(
-    `${process.env.REACT_APP_HOSTLOGIN}/600/users/${ids}`,
+    `${process.env.REACT_APP_HOST}/600/users/${ids}`,
     {
       method: "GET",
       headers: {
@@ -23,7 +23,7 @@ export async function getUserOrders(params) {
   const ids = JSON.parse(sessionStorage.getItem("id"));
   const token = JSON.parse(sessionStorage.getItem("accessToken"));
   const response = await fetch(
-    `${process.env.REACT_APP_HOSTLOGIN}/660/orders?user.id=${ids}`,
+    `${process.env.REACT_APP_HOST}/660/orders?user.id=${ids}`,
     {
       method: "GET",
       headers: {
@@ -51,7 +51,7 @@ export async function createOrders(cart, total, user) {
       id: user.id,
     },
   };
-  const response = await fetch(`${process.env.REACT_APP_HOSTLOGIN}/660/orders`, {
+  const response = await fetch(`${process.env.REACT_APP_HOST}/660/orders`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
