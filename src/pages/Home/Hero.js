@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 export const Hero = () => {
   return (
-    <section className="flex lg:flex-row dark:text-slate-100 items-center">
+    <section className="flex lg:flex-row other:flex-wrap dark:text-slate-100 items-center">
       <div className="text my-5">
         <h1 className="text-5xl font-bold">The Ultimate eBook Store</h1>
         <p className="text-2xl my-7 px-1 dark:text-slate-300">
