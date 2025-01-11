@@ -40,7 +40,6 @@ export async function getUserOrders(params) {
 }
 
 export async function createOrders(cart, total, user) {
-  const ids = JSON.parse(sessionStorage.getItem("id"));
   const token = JSON.parse(sessionStorage.getItem("accessToken"));
   const orderdetails = {
     cartList: cart,

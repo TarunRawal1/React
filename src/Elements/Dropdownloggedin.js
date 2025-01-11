@@ -24,7 +24,7 @@ export const Dropdownloggedin = ({ setdropdown }) => {
       }
     }
     getuser();
-  }, []);
+  }, [ids, token]);
   console.log("user", user);
   function handlelogout() {
     sessionStorage.removeItem("accessToken");

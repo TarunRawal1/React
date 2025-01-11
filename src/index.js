@@ -5,7 +5,7 @@ import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Store } from "./store/Store";
 import { Provider } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Scrolltotop } from "./components/Scrolltotop";
 import { FilterProvider } from "./Context/Filtercontext";

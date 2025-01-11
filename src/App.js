@@ -1,5 +1,4 @@
 import "./App.css";
-import LOGO from "./logo.png";
 import { Allroutes } from "./routes/Allroutes";
 import { Header, Footer } from "./components";
 

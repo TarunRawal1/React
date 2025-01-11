@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { removeFromCart } from "../../store/Cartslice";
 import { useDispatch } from "react-redux";
 export const Cartcard = ({ item }) => {
   const dispatch = useDispatch();
-  const { cart, total } = useSelector((state) => state.cart);
   return (
     <div className="flex flex-wrap mt-9 justify-between border-b dark:border-slate-700 max-w-4xl m-auto p-2 mb-5 ">
       <div className="flex">

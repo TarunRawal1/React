@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { Search } from "./Search";
 export const Header = () => {
   const [dropdown, setDropdown] = useState(false);
-  const { cart, total } = useSelector((state) => state.cart);
+  const { cart } = useSelector((state) => state.cart);
   const [hidden, setHidden] = useState(false);
 
   const [dark, setDark] = useState(

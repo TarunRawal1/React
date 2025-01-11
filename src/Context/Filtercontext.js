@@ -1,5 +1,4 @@
 import { createContext, useContext } from "react";
-import { Rating } from "../components/Rating";
 import { useReducer } from "react";
 import { Filterreducer } from "../Reducers/filterReducer";
 

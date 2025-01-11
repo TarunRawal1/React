@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { Rating } from "./Rating";
-import { useEffect, useState } from "react";
 import { addToCart, removeFromCart } from "../store/Cartslice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 export const Producard = ({ data }) => {
   const dispatch = useDispatch();
-  const { cart, total } = useSelector((state) => state.cart);
+  const { cart } = useSelector((state) => state.cart);
   function checker(data) {
     return cart.find((item) => item.id === data.id);
   }

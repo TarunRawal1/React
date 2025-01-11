@@ -3,12 +3,11 @@ import { useParams } from "react-router-dom";
 import { Rating } from "../components/Rating";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useTitle } from "../useTitle";
 import { getProductDetail } from "../Service/Productservice";
 import { addToCart, removeFromCart } from "../store/Cartslice";
 import { toast } from "react-toastify";
 export const ProductDetail = () => {
-  const { cart, total } = useSelector((state) => state.cart);
+  const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   function incart(data) {
     return cart.find((item) => item.id === data.id);

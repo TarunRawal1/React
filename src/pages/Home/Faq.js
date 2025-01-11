@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Accordian } from "../../components/Accordian";
 export const Faq = () => {
   const faqs = [

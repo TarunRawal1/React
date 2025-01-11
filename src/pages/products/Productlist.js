@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 export const Productlist = () => {
   const [active, setActive] = useState(false);
   const { productList, initalProductList } = useFilter();
-  const [datas, setDatas] = useState([]);
+
   const search = useLocation().search;
   const querypara = new URLSearchParams(search).get("q");
   useEffect(() => {
