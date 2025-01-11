@@ -1,8 +1,26 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import { useRef } from "react";
 import { Logins } from "../Service/Authservice";
 export const Login = () => {
+  const email = useRef();
+  const password = useRef();
+  async function loginasguest() {
+    email.current.value = "tarunrawal100@gmail.com";
+    password.current.value = "Bajrangi@123";
+    const authDetail = {
+      email: email.current.value,
+      password: password.current.value,
+    };
+    const data = await Logins(authDetail);
+    console.log(data, "authde");
+    data.accessToken ? navigate("/products") : toast.error(data);
+    if (data.accessToken) {
+      sessionStorage.setItem("accessToken", JSON.stringify(data.accessToken));
+      sessionStorage.setItem("id", JSON.stringify(data.user.id));
+    }
+  }
   const navigate = useNavigate();
   useEffect(() => {
     document.title = "Login";
@@ -42,6 +60,7 @@ export const Login = () => {
           <input
             type="email"
             id="email"
+            ref={email}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="shubham@example.com"
             required
@@ -57,6 +76,7 @@ export const Login = () => {
           </label>
           <input
             type="password"
+            ref={password}
             id="password"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required
@@ -69,7 +89,12 @@ export const Login = () => {
           Log In
         </button>
       </form>
-      {/* <button className="mt-3 cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login As Guest</button> */}
+      <button
+        onClick={loginasguest}
+        className="mt-3 cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Login As Guest
+      </button>
     </main>
   );
 };
